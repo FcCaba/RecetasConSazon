@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css2/styloCategoria.css">
+
+</head>
+
+<body>
+  <header class="fixed-top">
+    <nav class="navbar navbar-expand-lg headers">
+      <div class="container-fluid">
+        <a href="index.html">
+          <img src="assets/ico/resetacomida-icono.png" alt="" width="60px">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+          style="background: white;">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">RecetasConSazon </a>
+            </li>
+
+
+          </ul>
+          <button class="btn  position-relative" id="btncarrito" type="button" data-bs-toggle="modal"
+            data-bs-target="#modalCarrito">
+            <img src="assets/img/carro.png" alt="" width="50">
+            <span id="span1" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              0
+            </span>
+          </button><br>
+          <button class="btn  btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Categorias
+          </button>
+          <form class="d-flex" role="search">
+
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal -->
+
+  </header>
+
+  <main class="" style="margin-top: 5.5em;">
+    <div class="btn btn-primary container-fluid" style="height: 4rem; ">
+      <h4 class="float-start justify-content-center">Categoria</h4>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label for="tipoCocina">Tipo de Cocina</label>
+            <select class="form-select" id="tipoCocina" aria-label="Tipo de Cocina">
+              <option value="0" selected>Selecciona una opción</option>
+              <option value="1">Italiana</option>
+              <option value="2">Mexicana</option>
+              <option value="3">Asiática</option>
+              <option value="4">Mediterránea</option>
+              <option value="5">Americana</option>
+              <option value="6">Vegetariana</option>
+              <option value="7">Vegana</option>
+              <!-- Agrega otras opciones según tus necesidades -->
+            </select>
+
+            <!-- Requisitos Dietéticos -->
+            <label for="requisitosDieteticos">Requisitos Dietéticos</label>
+            <select class="form-select" id="requisitosDieteticos" aria-label="Requisitos Dietéticos">
+              <option value="0" selected>Selecciona una opción</option>
+              <option value="1">Sin Gluten</option>
+              <option value="2">Bajo en Calorías</option>
+              <option value="3">Bajo en Grasas</option>
+              <option value="4">Rico en Proteínas</option>
+              <option value="5">Keto</option>
+              <option value="6">Paleo</option>
+              <option value="7">Sin Lácteos</option>
+              <option value="8">Sin Nueces</option>
+            </select>
+
+            <label for="tiempoPreparacion">Tiempo de Preparación</label>
+            <select class="form-select" id="tiempoPreparacion" aria-label="Tiempo de Preparación">
+              <option value="0" selected>Selecciona una opción</option>
+              <option value="1">Rápido (menos de 30 minutos)</option>
+              <option value="2">Moderado (30-60 minutos)</option>
+              <option value="3">Largo (más de 60 minutos)</option>
+            </select>
+            <label for="dificultad">Dificultad</label>
+            <select class="form-select" id="dificultad" aria-label="Dificultad">
+              <option value="0" selected>Selecciona una opción</option>
+              <option value="1">Fácil</option>
+              <option value="2">Intermedia</option>
+              <option value="3">Avanzada</option>
+            </select>
+            <button type="button" class="btn btn-primary">Filtrar</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-scrollable ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito de Compras</h1>
+            <button type="button" id="btncarritoPosicion" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <h6>Monto Total: <p id="montoTotal"></p>bs</h6>
+            <div class="">
+              <table id="tabla" class=" table-bordered container-fluid">
+                <thead>
+                  <tr>
+                    <td>Nº</td>
+                    <td>Descripción</td>
+                    <td>Precio</td>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+          <div class="modal-footer justify-content-evenly">
+            <div class=" gap-2">
+              <button type="button" name="" id="btnElim" class="btn btn-primary">ELIMINAR</button>
+              <button type="button" name="" id="btnComprarTodo" class="btn btn-primary">COMPRAR TODO</button>
+            </div>
+            <div class="gap-2">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  <section class=" container-md justify-content-center gap-5" style="display: flex; flex-wrap: wrap; margin-top: 3rem;">
+    <div class="card" style="width: 18rem;">
+      <img src="assets/img/bizcocho de mandarina y almendra.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">bizcocho de mandarina y almendra</h5>
+        <p class="card-text">Los celíacos no tienen por qué renunciar a la repostería y este ejemplo, además de puro
+          aprovechamiento, es la reivindicación de un bizcocho fácil y sabroso, perfecto para cualquier merienda.</p>
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#producto1">Mas Detalles</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="assets/img/Bizcocho sencillo de manzana y limón.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Bizcocho sencillo de manzana y limón</h5>
+        <p class="card-text">Una deliciosa combinación de sabores con ingredientes básicos como harina, azúcar, huevos,
+          manzanas y limón. Fácil de preparar y perfecto para cualquier ocasión.</p>
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#producto2">Mas Detalles</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="assets/img/Puerros gratinados con jamón y quesoPuerros gratinados con jamón y queso.jpg"
+        class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Puerros gratinados con jamón y queso</h5>
+        <p class="card-text">Puerros gratinados con jamón y queso: Rodajas de puerro cocidas con jamón, cubiertas de
+          queso y gratinadas hasta que se derrite y se dora. Delicioso como acompañamiento o plato principal.</p>
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#producto3">Mas Detalles</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="assets/img/Tortilla de patatas vegana.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Tortilla de patatas vegana</h5>
+        <p class="card-text">Encontramos una asombrosa receta de tortilla de patatas vegana, sin huevo. Aunque no iguala
+          la clásica en sabor, la versión con harina de garbanzo y agua es una alternativa deliciosa para intolerantes
+          al huevo. ¡Una opción sorprendentemente lograda!.</p>
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#producto4">Mas Detalles</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="assets/carusel/pizza-3007395_1280.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Pizza</h5>
+        <p class="card-text">
+          La pizza, joya de la cocina italiana, es una masa crujiente coronada con salsa de tomate, queso derretido y
+          variados ingredientes. Desde la clásica Margarita hasta opciones creativas, la pizza es una delicia global que
+          combina sabores y texturas de manera irresistible.</p>
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#producto5">Mas Detalles</a>
+      </div>
+
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="assets/img/calamares a la andaluza.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">calamares a la andaluza</h5>
+        <p class="card-text">
+          Los calamares a la andaluza son una exquisitez española: anillas de calamar con una ligera masa de harina, ajo y perejil, fritas hasta lograr una textura crujiente. Un clásico de la costa andaluza que combina frescura y sabor marino.</p>
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#producto6">Mas Detalles</a>
+      </div>
+
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="assets/img/Salmón al za'atar con salsa de tahini.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Salmón al za'atar con salsa de tahini</h5>
+        <p class="card-text">
+          El salmón al za'atar con salsa de tahini es una exquisitez que combina la frescura del salmón con la mezcla de
+          especias za'atar, todo resaltado por una salsa de tahini cremosa. Un plato que fusiona sabores mediterráneos,
+          ofreciendo una experiencia culinaria única y deliciosa.
+
+        </p>
+        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#producto7">Mas Detalles</a>
+      </div>
+
+    </div>
+    <div class="modal fade" id="producto1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/img/bizcocho de mandarina y almendra.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+
+
+                    <div class="card-body">
+                      <h5 class="card-title">Nombre: <span id="nombre">bizcocho de mandarina y almendra</span></h5>
+                      <p class="card-text">Lavar muy bien las mandarinas y retirar los posibles rabitos que aún queden.
+                        Llenar una olla con agua y cocer la fruta sin dejar que hierva a borbotones durante unos 20-30
+                        minutos, hasta que estén muy tiernas. Dejar escurrir y enfriar.
+
+                        Precalentar el horno a 180ºC y preparar un molde redondo de unos 20 cm de diámetros. Cuando no
+                        quemen, terminar de secar y cortar en cuartos, sacando los huesos que puedan tener. Triturar con
+                        una batidora o procesador de alimentos hasta tener una pasta homogénea.
+
+                        Batir con batidora de varillas los huevos, el azúcar, la ralladura de limón y la sal, hasta que
+                        quede esponjoso; añadir el aceite de oliva. Batir un poco más hasta que quede homogéneo.
+                        Incorporar la mandarina, la almendra molida y la levadura química, mezclar con suavidad hasta
+                        integrarlo todo.
+
+                        Verter en el molde y hornear durante unos 45-50 minutos. Debe quedar ligeramente húmedo por el
+                        centro. Esperar un poco antes de desmoldar y dejar enfriar completamente sobre una rejilla.
+                        Decorar con azúcar glasé tamizado, si se desea.</p>
+                      <p>
+                      <h4> Ingredientes </h4><br>
+                      Para 8 personas <br>
+                      Mandarina (aproximadamente)
+                      200 g <br>
+                      Huevo
+                      4 <br>
+                      Azúcar
+                      100 g <br>
+                      Ralladura de limón
+                      0.5 <br>
+                      Sal
+                      2 g <br>
+                      Aceite de oliva virgen extra
+                      100 ml <br>
+                      Almendra molida
+                      180 g <br>
+                      Levadura química
+                      10 g <br>
+                      Azúcar glasé para decorar (opcional)
+                      </p>
+                      <div>
+                        <p>precio: $<span id="precio">100</span></p>
+                      </div>
+                      <a href="#" id="btnpbizcochodemandarinayalmendra" class="btn btn-primary">COMPRAR</a>
+                    </div>
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="producto2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/img/Bizcocho sencillo de manzana y limón.jpg" class="img-fluid rounded-start"
+                    alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+
+
+                    <div class="card-body">
+                      <h5 class="card-title">Nombre: <span id="nombre2">Bizcocho sencillo de manzana y limón</span></h5>
+                      <p class="card-text">Batimos la mantequilla y el azúcar en un recipiente hondo y amplio hasta
+                        obtener una mezcla cremosa y blanquecina. Añadimos los huevos, de uno en uno, y mezclamos bien
+                        antes de incorporar el siguiente. Añadimos la esencia de vainilla, el zumo de limón (reservando
+                        dos cucharadas para el glaseado final) y removemos para integrar.
+
+                        En un recipiente separado mezclamos bien la harina, la levadura química, la sal y la ralladura
+                        del limón. Incorporamos la mezcla al recipiente anterior, poco a poco y removiendo bien que no
+                        queden grumos. Pelamos y rallamos las manzanas y removemos suavemente hasta obtener una masa
+                        homogénea. Rellenamos con ella un molde de cake de 28 cm, con la base y paredes engrasadas y
+                        cubiertas de papel vegetal.
+
+                        Introducimos el molde en la mitad inferior del horno, precalentado a 180 ºC con calor arriba y
+                        abajo, y cocemos durante 45-50 minutos aproximadamente. Dejamos enfriar antes de cubrir con el
+                        glaseado de limón, que preparamos mezclando el azúcar glasé con las dos cucharadas de zumo de
+                        limón reservadas.</p>
+                      <p>
+                      <h4>Ingredientes</h4>
+
+                      Para 10 personas <br>
+                      Mantequilla en punto pomada
+                      110 <br>
+                      Azúcar
+                      110 g <br>
+                      Huevos
+                      4 <br>
+                      Harina de trigo
+                      250 g <br>
+                      Levadura química
+                      10 g <br>
+                      Sal una pizca <br>
+                      Ralladura de limón
+                      1 <br>
+                      Zumo de limón
+                      1 <br>
+                      Esencia de vainilla
+                      5 ml <br>
+                      Manzana pequeña
+                      3
+                      Azúcar glasé para el glaseado final
+                      100 g
+                      </p>
+                      <div>
+                        <p>precio: $<span id="precio2">50</span></p>
+                      </div>
+                      <a href="#" id="btnBizcochosencillodemanzanaylimon" class="btn btn-primary">COMPRAR</a>
+                    </div>
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="producto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/carusel/pizza-3007395_1280.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+                    <h5 class="card-title">Nombre: <span id="nombre3">Puerros gratinados con jamón y queso</span></h5>
+                    <p class="card-text">Partimos de la base de que disponemos de la salsa bechamel, lo que nos ahorrará
+                      unos 20 minutos. De no ser así, elaboramos una salsa bechamel siguiendo las indicaciones de la
+                      receta tradicional o las de la receta de salsa bechamel sin trigo, en caso de ser intolerantes al
+                      gluten.
+
+                      Escurrimos los puerros del agua en el que vienen conservados y los secamos bien con papel
+                      absorbente. Envolvemos cada puerro en una loncha de queso y, a continuación, en una loncha de
+                      jamón cocido. Cubrimos la base de una fuente de horno con una capa de salsa bechamel y disponemos
+                      los puerros encima.
+
+                      Vertemos la salsa bechamel sobre los puerros, asegurándonos que queden bien cubiertos para que no
+                      se sequen con el calor del horno. Esparcimos el queso rallado sobre la salsa bechamel y cocemos en
+                      el horno, pre-calentado a 200 ºC, durante unos 20 minutos o hasta que la superficie adquiera un
+                      color dorado. Retiramos del horno, dejamos reposar unos minutos y servimos calientes.</p>
+                    <p>
+                    <h4>Ingredientes</h4>
+
+                    Para 4 personas <br>
+                    Puerro en conserva
+                    8 <br>
+                    Queso Edam en lonchas
+                    8 <br>
+                    Jamón de York en lonchas
+                    8 <br>
+                    Salsa bechamel
+                    500 ml <br>
+                    Queso rallado para gratinar
+                    50 g <br>
+                    </p>
+                    <div>
+                      <p>precio: $<span id="precio3">15</span></p>
+                    </div>
+                    <a href="#" id="btnPuerrosgratinadosconjamonyqueso" class="btn btn-primary">COMPRAR</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="producto4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/img/Tortilla de patatas vegana.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+                    <h5 class="card-title">Nombre: <span id="nombre4">Tortilla de patatas vegana</span></h5>
+                    <p class="card-text">Pelamos las patatas y las cortamos en láminas finas. Pelamos la cebolla y la
+                      cortamos el juliana. Calentamos abundante aceite de oliva virgen extra en una sartén y añadimos
+                      las patatas y la cebolla. Freímos a fuego suave durante unos 30 minutos con la sartén tapada.
+                      Removemos de vez en cuando.
+
+                      Mientras tanto, en un recipiente hondo y amplio mezclamos el agua con la harina de garbanzos (esta
+                      masa será la sustituta del huevo) y batimos hasta que no haya grumos. Cuando la patata y la
+                      cebolla estén listas, escurrimos sobre un colador para retirar el exceso de aceite. Lo añadimos a
+                      la mezcla de agua y harina de garbanzo y sazonamos al gusto.
+
+                      Calentamos un poco de aceite en una sartén mediana y cuajamos a fuego bajo durante unos cinco
+                      minutos por cada lado, remetiendo los bordes hacia abajo para darle forma. Esta tortilla de
+                      patatas vegana no se puede dejar jugosa como la tradicional con huevo, así que es importante
+                      respetar el tiempo de cuajado para que la harina de garbanzo no quede cruda.</p>
+                    <p>
+                    <h4>Ingredientes </h4>
+                    Para 6 personas <br>
+                    Patata
+                    400 g <br>
+                    Cebolla
+                    150 g <br>
+                    Harina de garbanzo
+                    70 g <br>
+                    Agua
+                    180 ml <br>
+                    Aceite de oliva virgen extra
+                    Sal <br>
+                    </p>
+                    <div>
+                      <p>precio: $<span id="precio4">55</span></p>
+                    </div>
+                    <a href="#" id="btnTortilladepatatasvegana" class="btn btn-primary">COMPRAR</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="producto5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/carusel/pizza-3007395_1280.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+                    <h5 class="card-title">Nombre: <span id="nombre5">pizza</span></h5>
+                    <p class="card-text">
+                      1.- Para hacer la masa de pizza italiana es muy sencillo. En un bol agregamos el aceite, el agua y
+                      la levadura. Mezclamos y seguidamente le añadimos la harina y la pizca de sal. Una vez que tengáis
+                      mas o menos mezclado todo en el bol lo pasamos a la encima para amasar bien.
+
+                      masa de pizza casera
+                      2.- Ahora comienza el amasado. Ponemos un poco de harina en la encimera y tendremos que amasar
+                      como 3 o 4 minutos sin parar. Veremos que hemos terminado cuando la masa esté lisa totalmente, si
+                      se pega mucho le ponemos un poco de harina y seguimos hasta que quede lisa.
+
+                      hacer masa de pizza
+                      3.- Ahora una vez lista, la dejamos reposar durante 1 hora más o menos. Una vez reposada la
+                      partimos en dos y podemos hacer dos pizzas muy majas. La amasamos y estiramos. Ponemos lo
+                      ingredientes y al horno. Listo!
+
+                      receta de masa de pizza casera
+                    </p>
+                    <p>
+                    <h4>Ingredientes</h4>
+                    400 gramos de harina de trigo <br>
+                    200 ml de agua tibia <br>
+                    2 cucharadas de aceite de oliva <br>
+                    15 gramos de levadura fresca <br>
+                    1 pizca de sal <br>
+                    Harina para la encimera (para que no se pegue)
+                    </p>
+                    <div>
+                      <p>precio: $<span id="precio5">10</span></p>
+                    </div>
+                    <a href="#" id="btnpizza" class="btn btn-primary">COMPRAR</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="producto6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/img/calamares a la andaluza.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+                    <h5 class="card-title">Nombre: <span id="nombre6">calamares a la andaluza</span></h5>
+                    <p class="card-text">Cortamos el calamar en anillas tal como os indicamos para sacarle todo el
+                      aprovechamiento. También podéis optar por comprar anillas o pedirle al pescadero que os lo haga.
+                      Antes de rebozar los calamares, es importante secarlos muy bien para que no se adhiera demasiada
+                      harina sino solo la justa, evitando grumos y cortezas espesas que se desprenderán al freír.
+
+                      Salpimentamos al gusto los calamares. Antes de proceder a pasarlos por harina, sazonamos los
+                      calamares para que no queden dulzones. Después, en pequeños grupos los vamos enharinando y pasando
+                      a un plato donde dejamos que reposen mientras el aceite se calienta.
+
+                      Cuando el aceite esté muy caliente, freímos los aros o anillas de calamar en grupos de ocho o
+                      diez, dándoles la vuelta con unas pinzas para evitar que se despegue su rebozado. Al cabo de dos o
+                      tres minutos por cada lado, los sacamos a papel absorbente de cocina para eliminar el exceso de
+                      aceite.
+
+                      Calamares Andaluza Pasos Pakus Futurobloguero
+                      Servimos los calamares fritos a la andaluza muy calientes, acompañando la ración con un gajo de
+                      limón por si alguien quiere añadirlo, aunque lo mejor para disfrutar de su sabor auténtico es no
+                      hacerlo. Decoramos con unas hojas de perejil y llevamos rápidamente a la mesa.</p>
+                    <p>
+                    <H4>
+                      Ingredientes
+                    </H4>
+                    
+                    Para 2 personas <br>
+                    Calamar en anillas
+                    300 g <br>
+                    Harina de garbanzo o de trigo (para rebozar) <br>
+                    Sal y pimienta al gusto <br>
+                    Limón para decorar <br>
+                    </p>
+                    <div>
+                      <p>precio: $<span id="precio6">20</span></p>
+                    </div>
+                    <a href="#" id="btncalamaresalaandaluza" class="btn btn-primary">COMPRAR</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of </p>
+
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="producto7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/carusel/pizza-3007395_1280.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+                    <h5 class="card-title">Nombre: <span id="nombre7">Salmón al za'atar con salsa de tahini</span></h5>
+                    <p class="card-text">Antes de comenzar a cocinar, pon el horno a calentar a 220º C.
+
+                      Mientras se calienta, seca el salmón con un poco de papel de cocina, salpimiéntalo. En un bol,
+                      mezcla el za´taar y el zumaque. Pon el salmón en el bol con la piel hacia abajo, para que se forme
+                      una costra con las especias.
+
+                      En una sartén o cacerola apta para meter en el horno calienta una cucharada de aceite de oliva.
+                      Cuando esté caliente añade las espinacas. Salpimienta y saltea las espinacas durante dos o tres
+                      minutos hasta que se reduzcan. Coloca entonces el salmón con la piel hacia abajo y riégalo con dos
+                      cucharadas de aceite. Mete la sartén en el horno durante 5 minutos.
+
+                      Mientras se va cocinando el salmón prepara una salsa con la tahina, el ajo rallado o picado muy
+                      fino, el zumo de limón, una buena pizca de sal y 100 ml de agua. Bate bien para temer una emulsión
+                      homogénea.
+
+                      Pasados los 5 minutos retira el salmón del horno, vierte la salsa de tahini entre las tajadas de
+                      pescado y hornea otros 5 minutos más. Pasado este tiempo el pescado está listo, riega el pato con
+                      un poco más de zumo de limón y aceite y espolverea el cilantro fresco picado y otra cucharadita de
+                      zumaque. Sirve de inmediato. <br><br>
+                    <h4>Ingredientes</h4> <br>
+                    Para 4 personas <br>
+                    Salmón
+                    600 g <br>
+                    Zaatar cucharadas
+                    2 <br>
+                    Sumac o zumaque cucharaditas
+                    2 <br>
+                    Aceite de oliva
+                    60 ml <br>
+                    Espinaca fresca
+                    250 g <br>
+                    Tahini
+                    90 g <br>
+                    Dientes de ajo
+                    3 <br>
+                    Zumo de limón cucharadas
+                    3.5 <br>
+                    Cilantro fresco cucharadas
+                    1.5 <br>
+                    Sal
+                    Pimienta negra molida</p>
+                    <div>
+                      <p>precio: $<span id="precio7">30</span></p>
+                    </div>
+                    <a href="#" id="btnSalmona" class="btn btn-primary">COMPRAR</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="producto8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content mx-auto ">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Detalles De La Receta</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- ... -->
+            <div class=" mb-3" style="max-width: 90%;">
+              <div class="row g-4">
+                <div class="col-md-4">
+                  <img src="assets/carusel/pizza-3007395_1280.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+
+                    <h5 class="card-title">Nombre: <span id="nombre4">HELADO</span></h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
+                    <div>
+                      <p>precio: $<span id="precio4">25</span></p>
+                    </div>
+                    <a href="#" id="btnice" class="btn btn-primary">COMPRAR</a>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+
+
+
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Agregar Al Carrido</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11 .6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="js/jquery-3.7.1.js"></script>
+  <script src="js/jqCategoria.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
