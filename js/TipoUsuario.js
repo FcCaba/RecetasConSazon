@@ -8,10 +8,10 @@ function Login() {
     let tipou = TipoInput.value;
     let password = passwordInput.value;
     if(gmail==""&& nombreu==""&& password=="" && tipou=="Administrativo"){
-        window.open("/RecetasConSazon/html/Usuario_register.html")
+        window.open("html/Usuario_register.html")
         window.close()
     }else if(gmail==""&& password=="" && tipou=="Inventario"){
-        window.open("/RecetasConSazon/html/inventario_Register.html")
+        window.open("html/inventario_Register.html")
         window.close()
     }
     else{
