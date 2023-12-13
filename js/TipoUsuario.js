@@ -8,7 +8,7 @@ function Login() {
     let tipou = TipoInput.value;
     let password = passwordInput.value;
     if(gmail==""&& nombreu==""&& password=="" && tipou=="Administrativo"){
-        window.open("html/Usuario_register.html")
+        window.open("Usuario_register.html")
         window.close()
     }else if(gmail==""&& password=="" && tipou=="Inventario"){
         window.open("html/inventario_Register.html")
