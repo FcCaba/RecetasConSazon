@@ -9,12 +9,10 @@
 box-shadow: 1px 0.5px 28px 7px #000000;
 
 }
-.modal-content{
-    background-image: linear-gradient(to left bottom, #4c55a4, #5852bb, #6d4ad0, #893be0, #aa12eb);
-
--webkit-box-shadow: 1px 1px 20px 7px #000000; 
-box-shadow: 1px 0.5px 28px 7px #000000;
-
+.modal-content {
+    background-color: rgba(32, 59, 181, 0.8);
+    -webkit-box-shadow: 1px 1px 20px 7px #000000; 
+    box-shadow: 1px 0.5px 28px 7px #000000;
 }
 .headers{
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 28%, rgba(119,5,175,0.8408613445378151) 65%, rgba(0,212,255,1) 100%);
