@@ -41,30 +41,30 @@
     <main>
       
       <div class="container-md">
-        <form class="row g-3  p-2 usuReRegister" style="border-radius: 10px; margin-top: 5rem;">
+        <form class="row g-3  p-2 usuReRegister" needs-validation style="border-radius: 10px; margin-top: 5rem;">
           <h1 class="h1" style="text-align: center;"> Registro De Usuario</h1>
           <div class="col-md-6">
             <label  for=""  class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="nombreUsuario">
+            <input type="text" class="form-control" id="nombreUsuario" required>
             <label for="" class="form-label">Apellido Completo:</label>
-            <input type="text" class="form-control" id="ApellidoUsuario">
+            <input type="text" class="form-control" id="ApellidoUsuario" required>
           </div>
           <div class="col-md-6">
             
             <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="emailUsuario">
+            <input type="email" class="form-control" id="emailUsuario" required>
             <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <input type="password" class="form-control" id="inputPassword4" required>
           </div>
           <div class="col-md-6">
             <label for="inputAddress" class="form-label">Direccion</label>
-            <input type="text" class="form-control " id="DireccionUsuario" placeholder="1234 Main St">
+            <input type="text" class="form-control " id="DireccionUsuario" placeholder="" required>
             <label for="" class="form-label">Telefono/Celular</label>
-            <input type="number" class="form-control" name="" id="TelefonoUsuario">
+            <input type="number" class="form-control" name="" id="TelefonoUsuario" required>
           </div>
           <div class="col-md-4">
             <label for="inputState" class="form-label">Tipo Usuario</label>
-            <select id="TipoUsuario" class="form-select">
+            <select id="TipoUsuario" class="form-select" required>
               <option selected>Choose...</option>
               <option>Invertario</option>
               <option>Administrativo</option>
