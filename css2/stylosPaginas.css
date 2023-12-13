@@ -19,7 +19,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 28%, rgba(
     
     }
 footer{
-    background-image: linear-gradient(to top, #171b3a, #263863, #2e588f, #2d7bbd, #12a0eb);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 28%, rgba(119,5,175,0.8408613445378151) 65%, rgba(0,212,255,1) 100%);
+
 }
 .logheader{
     background: rgb(20, 19, 40);
