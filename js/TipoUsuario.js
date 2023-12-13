@@ -11,7 +11,7 @@ function Login() {
         window.open("Usuario_register.html")
         window.close()
     }else if(gmail==""&& password=="" && tipou=="Inventario"){
-        window.open("html/inventario_Register.html")
+        window.open("../html/inventario_Register.html")
         window.close()
     }
     else{
