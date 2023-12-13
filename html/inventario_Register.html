@@ -37,28 +37,29 @@
   </header>
   <main style="color: white;">
     <h1>Formulario de registro de receta</h1>
-    <form>
+    <form needs-validation>
+      
       <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Nombre Receta</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputNomRec">
+          <input type="text" class="form-control" id="inputNomRec" required>
         </div>
       </div>
       <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Ingredientes</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputIngre">
+          <input type="text" class="form-control" id="inputIngre" required>
         </div>
       </div>
       <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Preparacion</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputPrepa">
+          <input type="text" class="form-control" id="inputPrepa" required>
         </div>
       </div>
       <div class="col-12">
         <label class="visually-hidden" for="inlineFormSelectPref">Dificultad </label>
-        <select class="form-select" id="difi">
+        <select class="form-select" id="difi" required>
           <option selected>Choose...</option>
           <option value="1">Facil</option>
           <option value="2">Medio</option>
@@ -67,7 +68,7 @@
       </div>
       <div class="col-12">
         <label class="visually-hidden" for="inlineFormSelectPref">Calificacion</label>
-        <select class="form-select" id="califi">
+        <select class="form-select" id="califi"  required>
           <option selected>Choose...</option>
           <option value="1">✨</option>
           <option value="2">✨✨</option>
@@ -79,15 +80,15 @@
       <div class="row mb-3">
         <label class="col-sm-2 col-form-label">Fecha</label>
         <div class="col-sm-10">
-          <input type="date" class="form-control" id="inputFecha">
+          <input type="date" class="form-control" id="inputFecha"  required>
         </div>
       </div>
       <div class="input-group">
         <input type="file" class="form-control" id="inputImg" name="ifile"
           aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-        <img id="imgPreview" src="/RecetasConSazon/" alt="Vista previa de la imagen">
+        <img id="imgPreview" src="" alt="Vista previa de la imagen">
       </div>
-      <button class="btn btn-primary" id="datosReceta" type="button">Agregar Receta</button>
+      <button class="btn btn-primary" id="datosReceta" type="submit">Agregar Receta</button>
 
     </form>
   </main>
