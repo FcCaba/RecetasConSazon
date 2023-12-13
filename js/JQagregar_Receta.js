@@ -77,9 +77,7 @@ $("#agregarUsuario").click(function () {
       '<td>' + TelefonoUsuario.value + '</td>' +
       '</tr>'
     );
-  } else {
-    alert("Llene todos los campos vacíos");
-  }
+  } 
 });
 
 // ---ListaUsuatioFIN------------
