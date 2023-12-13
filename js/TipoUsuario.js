@@ -7,10 +7,10 @@ function Login() {
     let nombreu= NombreInput.value;
     let tipou = TipoInput.value;
     let password = passwordInput.value;
-    if(gmail==""&& nombreu=="franz"&& password=="12345" && tipou=="Administrativo"){
+    if(gmail==""&& nombreu==""&& password=="" && tipou=="Administrativo"){
         window.open("./Usuario_register.html")
         window.close()
-    }else if(gmail==""&& password=="franz" && tipou=="Inventario"){
+    }else if(gmail==""&& password=="" && tipou=="Inventario"){
         window.open("./inventario_Register.html")
         window.close()
     }
