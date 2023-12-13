@@ -49,8 +49,8 @@
             </div>
         </nav>
         <!-- Modal -->
-        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+            <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content colModal">
                     <div class="modal-header">
@@ -58,30 +58,52 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form class="row g-3 needs-validation" novalidate>
-                            <div class="col-12">
-                                <label for="validationCustom01" class="form-label">Gmail</label>
-                                <input type="email" class="form-control text-black" id="gmailLU"  required>
+                        <form class="row g-3 needs-validation" validate>
+
+                            <div class="col-md-12">
+                                <label for="validationCustomUsername" class="form-label">Correo Electronico</label>
+                                <div class="input-group has-validation">
+                                    <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
+                                    <input type="text" class="form-control" id="gmailLU"
+                                        aria-describedby="inputGroupPrepend" required>
+                                        <span class="input-group-text" id="inputGroupPrepend">
+                                            <select class="form-select" id="validationCustom04" required>
+                                                <option selected disabled value="">Seleccione...</option>
+                                                <option value="gmail.com">@gmail.com</option>
+                                                <option value="outlook.com">@outlook.com</option>
+                                                <option value="hotmail.com">@hotmail.com</option>
+                                                <option value="yahoo.com">@yahoo.com</option>
+                                                <option value="icloud.com">@icloud.com</option>
+                                                <option value="aol.com">@aol.com</option>
+                                            </select>
+                                        </span>
+                                    <div class="invalid-tooltip">
+                                        Please choose a username.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-8">
+                                <label for="validationCustom01" class="form-label">Nombre De Usuario</label>
+                                <input type="password" class="form-control" id="PasswordLU"  required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <label for="validationCustom02" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control  text-black" id="PasswordLU" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+
+
                             <div class="col-12">
                                 <button class="btn btn-primary" type="submit" onclick="Login()">Iniciar</button>
                             </div>
                         </form>
                     </div>
+
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <a type="button" class="btn btn-primary">Registrarse</a>
+                        <!-- <a type="button" class="btn btn-primary">Registrarse</a> -->
                     </div>
+
                 </div>
             </div>
         </div>
